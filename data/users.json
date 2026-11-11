@@ -1,0 +1,17 @@
+[
+  {
+    "email": "admin@cartify.com",
+    "password": "$2b$10$9vE0YyD3m5O8ZlGgQkH7U.7B2Qe0EwL1F.W6N4Kz4J9P1Q2R3S4Tu",
+    "role": "Admin"
+  },
+  {
+    "email": "gilang@mail.com",
+    "password": "$2b$10$9vE0YyD3m5O8ZlGgQkH7U.7B2Qe0EwL1F.W6N4Kz4J9P1Q2R3S4Tu",
+    "role": "Customer"
+  },
+  {
+    "email": "budi@mail.com",
+    "password": "$2b$10$9vE0YyD3m5O8ZlGgQkH7U.7B2Qe0EwL1F.W6N4Kz4J9P1Q2R3S4Tu",
+    "role": "Customer"
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Mouse Wireless Gaming Pro",
+    "description": "Mouse gaming ergonomis dengan kustomisasi DPI hingga 16000 dan ketahanan baterai tinggi.",
+    "price": 350000,
+    "categoryId": 1,
+    "userId": 1
+  },
+  {
+    "name": "Mechanical Keyboard RGB 60%",
+    "description": "Keyboard mekanikal kompak dengan switch red linear dan backlit RGB dinamis.",
+    "price": 650000,
+    "categoryId": 1,
+    "userId": 1
+  },
+  {
+    "name": "Headset Bluetooth Over-Ear",
+    "description": "Headphone nirkabel suara jernih dengan noise cancellation dan bass punchy.",
+    "price": 499000,
+    "categoryId": 1,
+    "userId": 1
+  },
+  {
+    "name": "Kaos Polos Cotton Combed 30s",
+    "description": "Bahan premium 100% katun, halus, adem, dan cocok dipakai sehari-hari.",
+    "price": 75000,
+    "categoryId": 2,
+    "userId": 1
+  },
+  {
+    "name": "Jaket Hoodie Oversize",
+    "description": "Hoodie bahan fleece tebal dengan jahitan rapi, nyaman untuk cuaca dingin.",
+    "price": 185000,
+    "categoryId": 2,
+    "userId": 1
+  },
+  {
+    "name": "Celana Chino Slim Fit",
+    "description": "Celana kain stretch elastis dengan potongan modern cocok untuk kasual maupun formal.",
+    "price": 220000,
+    "categoryId": 2,
+    "userId": 1
+  },
+  {
+    "name": "Tas Ransel Laptop Anti Air",
+    "description": "Tas punggung muat laptop 15.6 inci dilengkapi slot USB charger dan material waterproof.",
+    "price": 280000,
+    "categoryId": 3,
+    "userId": 1
+  },
+  {
+    "name": "Botol Minum Termos Stainless 500ml",
+    "description": "Termos mampu menjaga suhu panas/dingin hingga 12 jam dengan indikator suhu LED.",
+    "price": 125000,
+    "categoryId": 3,
+    "userId": 1
+  },
+  {
+    "name": "Kopi Bubuk Arabika Premium 250g",
+    "description": "Biji kopi kualitas ekspor dengan aroma harum dan rasa fruity asam alami khas nusantara.",
+    "price": 85000,
+    "categoryId": 4,
+    "userId": 1
+  },
+  {
+    "name": "Lampu Meja Belajar LED Smart",
+    "description": "Lampu meja hemat energi dengan 3 tingkat kecerahan warna dan baterai recharge.",
+    "price": 140000,
+    "categoryId": 5,
+    "userId": 1
+  }
+]

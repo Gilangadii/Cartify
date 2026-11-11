@@ -1,0 +1,20 @@
+[
+  {
+    "fullName": "Administrator Toko",
+    "phoneNumber": "081234567890",
+    "address": "Jl. Sudirman No. 1, Jakarta Selatan",
+    "userId": 1
+  },
+  {
+    "fullName": "Gilang Adi Saputra",
+    "phoneNumber": "089876543210",
+    "address": "Jl. Kebon Jeruk No. 45, Jakarta Barat",
+    "userId": 2
+  },
+  {
+    "fullName": "Budi Pratama",
+    "phoneNumber": "085511223344",
+    "address": "Jl. Gatot Subroto No. 88, Bandung",
+    "userId": 3
+  }
+]
