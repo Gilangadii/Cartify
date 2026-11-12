@@ -14,10 +14,31 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Profile.init({
-    fullName: DataTypes.STRING,
-    phoneNumber: DataTypes.STRING,
-    address: DataTypes.TEXT,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    fullName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: { msg: "Nama lengkap wajib diisi!" },
+        notEmpty: { msg: "Nama lengkap wajib diisi!" }
+      }
+    },
+    phoneNumber: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: { msg: "Nomor telepon wajib diisi!" },
+        notEmpty: { msg: "Nomor telepon wajib diisi!" }
+      }
+    },
+    address: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        notNull: { msg: "Alamat pengiriman wajib diisi!" },
+        notEmpty: { msg: "Alamat pengiriman wajib diisi!" }
+      }
+    }
   }, {
     sequelize,
     modelName: 'Profile',

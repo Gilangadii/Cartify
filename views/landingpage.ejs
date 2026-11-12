@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartify - Belanja Mudah, Cepat, dan Terpercaya</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7fb;
+      color: #1c1e21;
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    nav {
+      background-color: #ffffff;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      font-size: 1.8em;
+      font-weight: 800;
+      color: #1877f2;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 10px 22px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95em;
+      transition: all 0.2s ease;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-outline {
+      border: 2px solid #1877f2;
+      color: #1877f2;
+      background-color: transparent;
+    }
+
+    .btn-outline:hover {
+      background-color: #e7f3ff;
+    }
+
+    .btn-primary {
+      background-color: #1877f2;
+      color: #ffffff;
+      border: 2px solid #1877f2;
+    }
+
+    .btn-primary:hover {
+      background-color: #1565c0;
+      border-color: #1565c0;
+    }
+
+    .btn-success {
+      background-color: #42b72a;
+      color: #ffffff;
+      border: 2px solid #42b72a;
+    }
+
+    .btn-success:hover {
+      background-color: #36a420;
+      border-color: #36a420;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 40px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      min-height: 75vh;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #e7f3ff;
+      color: #1877f2;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85em;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero-content h1 {
+      font-size: 3em;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #1c1e21;
+      margin-bottom: 18px;
+    }
+
+    .hero-content h1 span {
+      color: #1877f2;
+    }
+
+    .slogan {
+      font-size: 1.2em;
+      color: #55595c;
+      margin-bottom: 32px;
+      max-width: 520px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .hero-cta .btn {
+      padding: 14px 30px;
+      font-size: 1.05em;
+    }
+
+    /* ILLUSTRATION CARD */
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .illustration-box {
+      background: linear-gradient(135deg, #1877f2 0%, #42a5f5 100%);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(24, 119, 242, 0.2);
+      width: 100%;
+      max-width: 440px;
+      text-align: center;
+      color: white;
+    }
+
+    /* FEATURES SECTION */
+    .features {
+      background-color: #ffffff;
+      padding: 60px 8%;
+      border-top: 1px solid #e4e6eb;
+    }
+
+    .features-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-card {
+      padding: 25px;
+      border-radius: 12px;
+      background-color: #f8f9fa;
+      border: 1px solid #ebedf0;
+    }
+
+    .feature-icon {
+      font-size: 2em;
+      margin-bottom: 12px;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 8px;
+      color: #1c1e21;
+    }
+
+    .feature-card p {
+      font-size: 0.92em;
+      color: #606770;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #65676b;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        margin: 20px auto;
+      }
+      .slogan {
+        margin: 0 auto 30px;
+      }
+      .hero-cta {
+        justify-content: center;
+      }
+      .hero-content h1 {
+        font-size: 2.3em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="/" class="brand">🛒 Cartify</a>
+    <div class="nav-buttons">
+      <a href="/login" class="btn btn-outline">Login</a>
+      <a href="/register" class="btn btn-primary">Register</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="badge">#1 Platform Belanja Pilihanmu</span>
+      <h1>Penuhi Semua Kebutuhanmu di <span>Cartify</span></h1>
+      <p class="slogan">
+        "Klik, Masuk Keranjang, Langsung Checkout — Solusi belanja online praktis dengan harga terbaik dan invoice otomatis."
+      </p>
+
+      <div class="hero-cta">
+        <a href="/register" class="btn btn-success">Mulai Belanja (Daftar)</a>
+        <a href="/login" class="btn btn-primary">Masuk ke Akun</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <div class="illustration-box">
+        <svg width="180" height="180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <h3 style="margin-top: 15px; font-size: 1.4em;">Belanja Tanpa Ribet</h3>
+        <p style="font-size: 0.9em; opacity: 0.9; margin-top: 6px;">
+          Ribuan produk pilihan siap dikirim langsung ke pintu rumahmu.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Checkout Cepat</h3>
+        <p>Kelola keranjang belanjaanmu dalam satu klik dan selesaikan transaksi tanpa antre.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📄</div>
+        <h3>Invoice PDF Otomatis</h3>
+        <p>Bukti pembayaran dan rincian pesanan langsung tersedia dalam format PDF siap unduh.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Aman & Terkelola</h3>
+        <p>Sistem akun terpisah antara Admin dan Customer untuk keamanan data serta stok produk.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Cartify E-Commerce. All rights reserved.
+  </footer>
+
+</body>
+</html>

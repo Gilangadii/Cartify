@@ -21,10 +21,68 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Product.init({
-    name: DataTypes.STRING,
-    description: DataTypes.TEXT,
-    price: DataTypes.INTEGER,
-    categoryId: DataTypes.INTEGER,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: "Name required!"
+        },
+        notEmpty: {
+          msg: "Name required!"
+        },
+        isTwoWords(value){
+          if(value.split(" ").length < 2){
+            throw new Error("Minimal name is 2 words!")
+          }
+        }
+      }
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: "Description required!"
+        },
+        notEmpty: {
+          msg: "Description required!"
+        },
+        isFiveWords(value){
+          if(value.split(" ").length < 5){
+            throw new Error("Minimal description is 5 words!")
+          }
+        }
+      }
+    },
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: "Price required!"
+        },
+        notEmpty: {
+          msg: "Price required!"
+        },
+        min: {
+          args: 1,
+          msg: "Minimal price is 1!"
+        }
+      }
+    },
+    categoryId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: "Category required!"
+        },
+        notEmpty: {
+          msg: "Category required!"
+        },
+      }
+    },
     userId: DataTypes.INTEGER
   }, {
     sequelize,

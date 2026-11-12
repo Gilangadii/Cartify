@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Saya - Cartify</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f7fb; color: #1c1e21; }
+    .container { max-width: 600px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 20px; }
+    h2 { margin: 0; color: #1877f2; }
+    .alert-error { padding: 10px; background-color: #f8d7da; color: #721c24; border-radius: 4px; margin-bottom: 15px; font-size: 0.9em; }
+    .alert-success { padding: 12px; background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; border-radius: 6px; margin-bottom: 20px; font-size: 0.92em; }
+    .info-row { margin-bottom: 15px; padding-bottom: 12px; border-bottom: 1px solid #f1f1f1; }
+    .info-label { font-size: 0.85em; color: #666; font-weight: bold; text-transform: uppercase; margin-bottom: 4px; }
+    .info-value { font-size: 1.05em; color: #222; }
+    .empty-profile { text-align: center; padding: 30px 15px; background-color: #f8f9fa; border-radius: 8px; margin-bottom: 20px; }
+    .btn-group { display: flex; gap: 10px; margin-top: 25px; }
+    .btn { padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; text-align: center; display: inline-block; }
+    .btn-primary { background-color: #1877f2; color: white; }
+    .btn-warning { background-color: #ffc107; color: #1c1e21; }
+    .btn-secondary { background-color: #6c757d; color: white; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h2>Profil Akun</h2>
+      <a href="/products" class="btn btn-secondary">&larr; Kembali ke Katalog</a>
+    </header>
+    <% if (error) { %>
+        <div class="alert-error">
+          <%= error %>
+        </div>
+      <% } %>
+    <% if (success) { %>
+      <div class="alert-success"><%= success %></div>
+    <% } %>
+
+    <div class="info-row">
+      <div class="info-label">Email Akun</div>
+      <div class="info-value"><%= user.email %></div>
+    </div>
+
+    <div class="info-row">
+      <div class="info-label">Role</div>
+      <div class="info-value"><%= user.role %></div>
+    </div>
+
+    <% if (profile) { %>
+      <div class="info-row">
+        <div class="info-label">Nama Lengkap Penerima</div>
+        <div class="info-value"><%= profile.fullName %></div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-label">Nomor Telepon / WhatsApp</div>
+        <div class="info-value"><%= profile.phoneNumber %></div>
+      </div>
+
+      <div class="info-row" style="border-bottom: none;">
+        <div class="info-label">Alamat Pengiriman</div>
+        <div class="info-value"><%= profile.address %></div>
+      </div>
+
+      <div class="btn-group">
+        <a href="/profiles/add" class="btn btn-warning">Edit Data Profil</a>
+        <a href="/carts" class="btn btn-primary">Lihat Keranjang</a>
+      </div>
+    <% } else { %>
+      <div class="empty-profile">
+        <p style="margin-top: 0; color: #555;">Kamu belum melengkapi data diri dan alamat pengiriman.</p>
+        <a href="/profiles/add" class="btn btn-primary">Lengkapi Profil Sekarang</a>
+      </div>
+    <% } %>
+  </div>
+
+</body>
+</html>

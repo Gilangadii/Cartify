@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout Pesanan - Cartify</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f7fb; color: #1c1e21; }
+    .container { max-width: 800px; margin: 30px auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+    h1 { margin: 0; font-size: 1.6em; color: #1877f2; }
+    .buyer-info { background-color: #f8f9fa; padding: 15px 20px; border-radius: 8px; border-left: 4px solid #1877f2; margin-bottom: 25px; }
+    .buyer-info h3 { margin: 0 0 8px 0; font-size: 1.05em; color: #333; }
+    .buyer-info p { margin: 4px 0; font-size: 0.92em; color: #555; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 25px; }
+    th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+    th { background-color: #f8f9fa; color: #555; font-size: 0.9em; }
+    .text-right { text-align: right; }
+    .text-center { text-align: center; }
+    .summary-box { display: flex; justify-content: space-between; align-items: center; background-color: #e7f3ff; padding: 20px; border-radius: 8px; margin-bottom: 25px; }
+    .total-amount { font-size: 1.5em; font-weight: bold; color: #1877f2; }
+    .action-buttons { display: flex; justify-content: space-between; gap: 15px; }
+    .btn { padding: 12px 22px; border: none; border-radius: 6px; cursor: pointer; text-decoration: none; font-size: 1em; font-weight: bold; text-align: center; }
+    .btn-secondary { background-color: #6c757d; color: white; }
+    .btn-primary { background-color: #1877f2; color: white; flex: 1; }
+    .btn-primary:hover { background-color: #1565c0; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Ringkasan Checkout</h1>
+      <span style="color: #666; font-size: 0.9em;">Cartify Official Store</span>
+    </header>
+
+    <!-- INFORMASI PEMBELI -->
+    <div class="buyer-info">
+      <h3>Informasi Pembeli</h3>
+      <p><strong>Email Akun:</strong> <%= user.email %></p>
+      <% if (user.Profile) { %>
+        <p><strong>Nama Penerima:</strong> <%= user.Profile.fullName %></p>
+        <p><strong>No. Telepon:</strong> <%= user.Profile.phoneNumber %></p>
+        <p><strong>Alamat Pengiriman:</strong> <%= user.Profile.address %></p>
+      <% } else { %>
+        <p style="color: #856404;"><em>Data profil lengkap belum diisi. Invoice akan menggunakan email akun.</em></p>
+      <% } %>
+    </div>
+
+    <!-- RINCIAN ITEM PESANAN -->
+    <table>
+      <thead>
+        <tr>
+          <th>Produk</th>
+          <th class="text-right">Harga</th>
+          <th class="text-center">Qty</th>
+          <th class="text-right">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% let grandTotal = 0; %>
+        <% carts.forEach(item => { %>
+          <% 
+            const subtotal = item.calculateSubtotal(); 
+            grandTotal += subtotal; 
+          %>
+          <tr>
+            <td><strong><%= item.Product.name %></strong></td>
+            <td class="text-right"><%= rupiah(item.Product.price) %></td>
+            <td class="text-center"><%= item.quantity %></td>
+            <td class="text-right"><%= rupiah(subtotal) %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <div class="summary-box">
+      <span style="font-size: 1.1em; font-weight: bold;">Total Pembayaran:</span>
+      <span class="total-amount"><%= rupiah(grandTotal) %></span>
+    </div>
+
+    <div class="action-buttons">
+      <a href="/carts" class="btn btn-secondary">&larr; Kembali ke Keranjang</a>
+      
+      <form action="/carts/checkout" method="POST" style="flex: 1; display: flex;">
+        <button type="submit" class="btn btn-primary">Bayar & Unduh Invoice PDF 📄</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

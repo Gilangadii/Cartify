@@ -4,11 +4,20 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Cart extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+    calculateSubtotal() {
+      if (this.Product) {
+        return this.quantity * this.Product.price;
+      }
+      return 0;
+    }
+    
+    static async getUserCarts(userId) {
+      return await Cart.findAll({
+        where: { userId },
+        include: ['Product'],
+        order: [['createdAt', 'ASC']]
+      });
+    }
     static associate(models) {
       Cart.belongsTo(models.User, { foreignKey: 'userId' })
       Cart.belongsTo(models.Product, { foreignKey: 'productId' })
@@ -16,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Cart.init({
     userId: DataTypes.INTEGER,
-    productId: DataTypes.INxTEGER,
+    productId: DataTypes.INTEGER,
     quantity: DataTypes.INTEGER
   }, {
     sequelize,
