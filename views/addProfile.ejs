@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lengkapi Profil Pengiriman - Cartify</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f7fb; color: #1c1e21; }
+    .container { max-width: 500px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    h2 { margin-top: 0; color: #1877f2; }
+    .alert-info { padding: 12px; background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; border-radius: 6px; margin-bottom: 18px; font-size: 0.9em; }
+    .form-group { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 6px; font-weight: bold; color: #444; font-size: 0.92em; }
+    input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-family: inherit; font-size: 0.95em; }
+    textarea { resize: vertical; height: 90px; }
+    .btn-group { display: flex; gap: 10px; margin-top: 20px; }
+    .btn { padding: 11px 16px; border: none; border-radius: 6px; cursor: pointer; text-decoration: none; text-align: center; font-size: 0.95em; font-weight: bold; flex: 1; }
+    .btn-primary { background-color: #1877f2; color: white; }
+    .btn-secondary { background-color: #6c757d; color: white; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Data Diri & Pengiriman</h2>
+
+    <% if (error) { %>
+      <div class="alert-info">
+        <%= error %>
+      </div>
+    <% } %>
+
+    <form action="/profiles/add" method="POST">
+      <div class="form-group">
+        <label for="fullName">Nama Lengkap Penerima</label>
+        <input type="text" id="fullName" name="fullName" value="<%= profile ? profile.fullName : '' %>" placeholder="Contoh: Budi Santoso">
+      </div>
+
+      <div class="form-group">
+        <label for="phoneNumber">Nomor Telepon / WhatsApp</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" value="<%= profile ? profile.phoneNumber : '' %>" placeholder="Contoh: 081234567890">
+      </div>
+
+      <div class="form-group">
+        <label for="address">Alamat Lengkap Pengiriman</label>
+        <textarea id="address" name="address" placeholder="Masukkan nama jalan, nomor rumah, kecamatan, dan kota"><%= profile ? profile.address : '' %></textarea>
+      </div>
+
+      <div class="btn-group">
+        <a href="/carts" class="btn btn-secondary">Kembali ke Keranjang</a>
+        <button type="submit" class="btn btn-primary">Simpan & Lanjut Checkout</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>
