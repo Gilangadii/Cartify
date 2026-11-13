@@ -2,7 +2,6 @@ const {User, Profile, Product, Category, Cart} = require("../models")
 const bcrypt = require('bcryptjs')
 const { Op } = require('sequelize');
 const {rupiah, generateInvoice} = require('../helpers/helper')
-const easyinvoice = require('easyinvoice');
 
 class Controller {
     // LANDING PAGE, REGISTER, LOGIN
