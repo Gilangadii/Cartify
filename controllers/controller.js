@@ -302,7 +302,7 @@ class Controller {
       try {
         const { id } = req.params;
         let data = await Product.findByPk(id)
-        data.destroy()
+        await data.destroy()
         res.redirect('/products');
       } catch (error) {
         console.log(error);
@@ -368,7 +368,7 @@ class Controller {
         });
   
         if (!user.Profile) {
-          return res.redirect('/profiles/add?error=Silakan lengkapi profil sebelum checkout.');
+          return res.redirect('/profiles?error=Silakan lengkapi profil sebelum checkout.');
         }
         const { pdfBuffer, invoiceNumber } = await generateInvoice(user, carts);
         await Cart.destroy({
